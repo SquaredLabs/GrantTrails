@@ -1,4 +1,5 @@
-let mix = require('laravel-mix');
+const { mix } = require('laravel-mix')
+const path = require('path')
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +12,28 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/js/index.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+
+mix.webpackConfig({
+  resolve: {
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'resources/assets/js')
+    ]
+  }
+})
+
+// Turn off comparison optimization to prevent mapbox-gl from crashing
+// https://github.com/mapbox/mapbox-gl-js/issues/4359#issuecomment-286277540
+mix.options({
+  uglify: {
+    compress: {
+      comparisons: false
+    }
+  }
+})
+
+if (mix.inProduction()) {
+  mix.version()
+}

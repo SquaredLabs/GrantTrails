@@ -1,0 +1,20 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "styles": "styles",
+      "mbtiles": "mbtiles",
+      "fonts": "fonts"
+    }
+  },
+  "styles": {
+    "positron": {
+      "style": "positron.json"
+    }
+  },
+  "data": {
+    "united-states-of-america-vector": {
+      "mbtiles": "united_states_of_america.mbtiles"
+    }
+  }
+}

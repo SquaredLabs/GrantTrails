@@ -1,0 +1,57 @@
+$main-color: #5aaeec;
+
+.segmented-control {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+
+    > * {
+        font-size: .825em;
+        padding: .2em .4em;
+        transition-duration: .2s;
+        text-align: center;
+    }
+
+    .segmented-control-option {
+        border: 1px solid $main-color;
+        flex: 1;
+
+        &:nth-child(2) { border-left-color: lighten($main-color, 10%); }
+        &:last-child { border-radius: 0 2px 2px 0; }
+
+        &:hover {
+            background-color: transparentize($main-color, .5);
+        }
+
+        &.selected {
+            background-color: $main-color;
+            color: white;
+
+            &:nth-child(2) {
+                border-left-color: $main-color;
+            }
+        }
+
+        // Hide the right border so we can stylize the left border when multiple
+        // options are selected.
+        &:nth-child(2) { border-right-width: 0; }
+        & + * { border-right-width: 0; }
+        &:last-child { border-right-width: 1px; }
+
+        &.selected + .selected {
+            border-left-color: transparentize(white, .75);
+        }
+    }
+
+    .segmented-control-reset {
+        flex-grow: 0;
+        background-color: rgba(0,0,0,.08);
+        border-radius: 2px 0 0 2px;
+        border-bottom: 0 solid transparent;
+
+        &.selected {
+            color: inherit;
+            border-bottom: 2px solid rgb(17, 74, 201);
+        }
+    }
+}

@@ -1,0 +1,44 @@
+$loader-size: 150px;
+$loader-color: transparentize(black, 0.2);
+$loader-duration: 600ms;
+
+.spinner {
+    height: $loader-size;
+    margin: 0 auto;
+    position: relative;
+    width: $loader-size;
+
+    .spinner-arc {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+
+    .spinner-arc::before,
+    .spinner-arc::after {
+        border: 2px solid;
+        border-radius: 50%;
+        content: '';
+        height: 36%;
+        left: 32%;
+        position: absolute;
+        top: 32%;
+        width: 36%;
+    }
+
+    .spinner-arc::before {
+        border-color: $loader-color;
+        opacity: .3;
+    }
+
+    .spinner-arc::after {
+        animation: rotate $loader-duration infinite linear;
+        border-color: $loader-color transparent transparent transparent;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -11,6 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $startTime = microtime(true);
+
+        $this->call(LocationsTableSeeder::class);
+        $this->call(ExpenseCategoriesTableSeeder::class);
+        $this->call(AgencyTypesTableSeeder::class);
+        $this->call(PurchasesTableSeeder::class);
+
+        $executionTime = (microtime(true) - $startTime) / 60;
+        echo "Seeding finished in $executionTime minutes." . PHP_EOL;
     }
 }

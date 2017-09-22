@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
+use Elasticsearch\ClientBuilder;
+use App\Location;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,30 @@ use Illuminate\Foundation\Inspiring;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
+Artisan::command('elasticsearch:reindex', function() {
+    // Not sure why this command requires so much memory. I have a feeling
+    // it's due to locations already indexed not being freed quickly enough
+    // from past loops.
+    ini_set('memory_limit', '2048M');
+
+    $client = ClientBuilder::create()
+      ->setHosts([config('elasticsearch.host')])
+      ->build();
+
+    $index = config('elasticsearch.index');
+
+    // Clear indices to remove stale documents
+    if ($client->indices()->exists([ 'index' => $index ])) {
+        $response = $client->indices()->delete([ 'index' => $index ]);
+    }
+
+    $locations = Location::havingCoordinates()->get();
+    foreach ($locations as $location) {
+        $client->index([
+            'index' => \Config::get('elasticsearch.index'),
+            'type' => 'location',
+            'id' => $location->id,
+            'body' => $location->toSearchableArray()
+        ]);
+    }
+})->describe('Reindex Elasticsearch');

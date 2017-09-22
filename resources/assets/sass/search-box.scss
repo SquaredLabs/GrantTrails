@@ -1,0 +1,22 @@
+.search-box {
+    background-color: rgba(0,0,0, 0.1);
+
+    border: 2px solid transparent;
+    border-radius: 3px;
+
+    cursor: default;
+
+    font-size: 1.1em;
+
+    box-sizing: border-box;
+    width: calc(100% - 2em);
+    margin: 1em; padding: .4em .6em;
+
+    transition-duration: .1s;
+
+    &:focus {
+        border: 2px solid lighten(rgb(54, 97, 193), 30%);
+        cursor: text;
+        outline: none;
+    }
+}

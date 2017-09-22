@@ -1,0 +1,20 @@
+.about-pane-container {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.about-pane {
+    overflow-y: auto;
+    font-size: .85em;
+
+    > div {
+        padding: 0 0 .1em 1em;
+        margin: 2em 2em 2em 1em;
+        border-left: 3px solid #5aaeec;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+}

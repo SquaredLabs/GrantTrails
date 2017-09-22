@@ -1,0 +1,27 @@
+.expand-button {
+    position: sticky;
+    top: 0;
+
+    border-top: 1px solid rgba(0,0,0, .08);
+    padding: .75em 1em;
+    background-color: #f9f9f9;
+    font-size: .9em;
+
+    display: flex;
+    justify-content: space-between;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+    user-select: none;
+
+    .expand-indicator {
+        color: rgba(0,0,0, .3);
+        transition-duration: .2s;
+        transform: scale(1.5);
+    }
+
+    &.expanded .expand-indicator {
+        transform: scale(1.5) rotate(90deg) translateX(50%);
+    }
+}
