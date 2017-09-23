@@ -54,14 +54,6 @@ export default class Sidebar extends React.Component {
     return h('div', { className, ref: 'container' },
       h(SearchBox),
 
-      h('div', { className: 'about-pane-container' },
-        h(AboutExpandButton),
-        h(AnimateHeight, {
-          duration: 300,
-          height: UiState.userIsViewingAbout ? 'auto' : 0,
-          children: h(AboutPane)
-        })),
-
       h('div', { className: 'filters-container' },
         h(FiltersExpandButton),
         h(AnimateHeight, {
@@ -73,7 +65,15 @@ export default class Sidebar extends React.Component {
       h('div', { className: 'sidebar-body' },
         h(ResultFromMap),
         h(Results)
-      )
+      ),
+
+      h('div', { className: 'about-pane-container' },
+        h(AboutExpandButton),
+        h(AnimateHeight, {
+          duration: 300,
+          height: UiState.userIsViewingAbout ? 'auto' : 0,
+          children: h(AboutPane)
+        }))
     )
   }
 }

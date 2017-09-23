@@ -20,6 +20,15 @@ class UiState {
       () => { this.selectedLocation = null },
       { name: 'reset selected location on search' }
     )
+
+    // It's unlikely someone will want to view the about pane and search results
+    // at the same time, so we'll close the about pane to save vertical space
+    // and prevent it from moving so much as results come in.
+    reaction(
+      () => FilterState.search,
+      () => { this.userIsViewingAbout = false },
+      { name: 'close about pane when searching' }
+    )
   }
 
   @computed get showSpinner () {
