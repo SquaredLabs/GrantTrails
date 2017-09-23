@@ -13,8 +13,8 @@
     }
   },
   "data": {
-    "united-states-of-america-vector": {
-      "mbtiles": "united_states_of_america.mbtiles"
+    "planet-vector": {
+      "mbtiles": "planet.mbtiles"
     }
   }
 }

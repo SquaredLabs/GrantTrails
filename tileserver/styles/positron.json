@@ -31,7 +31,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "mbtiles://united_states_of_america.mbtiles"
+      "url": "mbtiles://planet.mbtiles"
     }
   },
   "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
