@@ -34,9 +34,9 @@ The reason for this is that grant dollars almost never stay completely within an
 
 Not surprisingly the companies providing the goods purchased on grants, and the people (graduate students, post-doctoral fellows, technicians, etc.) employed on grant dollars, tend to be located (or live) within relatively close proximity to the institution carrying out the research.
 
-What you’re looking at here is a visualization of where grant dollars received by UConn faculty were spent within the United States between fiscal years 2013 to 2017. Dollars spent within our state are highlighted in red.
+What you’re looking at here is a visualization of where direct grant dollars received by UConn faculty were spent within Connecticut between fiscal years 2014 to 2017.
 
-Feel free to explore the visualization by typing in a location (city/state or zip), adjusting filters, or just panning and zooming on the map. Most importantly let us know what you think!
+Feel free to explore the visualization by typing in a location (city or zip), adjusting filters, or just panning and zooming on the map. Most importantly [let us](https://squaredlabs.uconn.edu) know what you think!
 
 ## Credit
 
