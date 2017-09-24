@@ -64,6 +64,7 @@ class LocationStore {
 
     if (FilterState.search === '') {
       this.lastFetchDidError = false
+      this.lastFetchHadNoResults = false
       return
     }
 
