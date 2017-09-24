@@ -24,8 +24,8 @@ export default class extends React.Component {
     const selectedFromMap = fullLocationLoaded &&
       !searchResults.includes(UiState.selectedLocation.id)
 
-    return h(Accordion, null,
-      h('ul', null,
+    return h(Accordion, { className: 'results' },
+      h('ul',
         selectedFromMap && h(LocationCell, {
           selected: true,
           location: selectedLocation

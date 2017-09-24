@@ -1,11 +1,12 @@
 .about-pane-container {
-    flex: 1;
-    overflow-y: auto;
-    max-height: 60vh;
+    min-height: 0;
 }
 
 .about-pane {
+    flex: 1;
     overflow-y: auto;
+    max-height: 50vh;
+
     font-size: .85em;
 
     > div {
