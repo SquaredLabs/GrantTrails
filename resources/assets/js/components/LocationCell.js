@@ -10,7 +10,7 @@ import SamHerbertLoader from 'components/SamHerbertLoader'
 export default class LocationCell extends React.Component {
   onClick () {
     const { UiState, location } = this.props
-    UiState.selectedLocation = location
+    UiState.selectLocationFromSidebar(location.id)
   }
 
   render () {

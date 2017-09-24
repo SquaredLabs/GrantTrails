@@ -42,15 +42,33 @@ class UiState {
     return !this.mapDidLoad && this.mapDidError
   }
 
-  @action async selectLocationFromMap (id) {
-    // Clear search results if a valid point was selected from the map. This
-    // was requested by Dan with the rationale that the sidebar search and map
-    // search should be mutually exclusive. You can search using one or the
-    // other but it doesn't make sense to do both.
-    if (PointStore.isIdVisibleOnMap(id)) {
-      FilterState.search = ''
-    }
+  flyToSelectedLocation () {
+    // There isn't a quick and easy way to get the default font size, so we'll
+    // assume it's 16.
+    const approximateSidebarSize = 26 * 16
+    const sidebarIsAboveInsteadOfOnLeft = window.innerWidth < approximateSidebarSize
 
+    // If the window width is smaller than the size of the sidebar, we do
+    // not want to shift since the user is clicking on locations below the map
+    const offset = !sidebarIsAboveInsteadOfOnLeft
+      // Offset describes how much to shift the center by. Since we have a
+      // sidebar on the left, we want our offset to be half of the sidebar's
+      // width. We also shift 30 pixels up since it looks a bit better.
+      ? [ document.querySelector('.sidebar').offsetWidth / 2, -30 ]
+      : [0, 50]
+
+    this.map.flyTo({
+      // Don't zoom the user out, cause that can be annoying.
+      zoom: Math.max(this.map.getZoom(), 9),
+      center: [
+        this.selectedLocation.longitude,
+        this.selectedLocation.latitude
+      ],
+      offset
+    })
+  }
+
+  @action async selectLocation (id) {
     if (!LocationStore.locations.has(id)) {
       // We only have the id for now. Once we do the AJAX request, we can populate
       // selectedLocation with full information from the backend.
@@ -63,6 +81,27 @@ class UiState {
     runInAction('selectLocationFromMap', () => {
       this.selectedLocation = location
     })
+  }
+
+  @action async selectLocationFromMap (id) {
+    // Clear search results if a valid point was selected from the map. This
+    // was requested by Dan with the rationale that the sidebar search and map
+    // search should be mutually exclusive. You can search using one or the
+    // other but it doesn't make sense to do both.
+    if (PointStore.isIdVisibleOnMap(id)) {
+      FilterState.search = ''
+    }
+
+    await this.selectLocation(id)
+
+    if (this.map.getZoom() < 9) {
+      this.flyToSelectedLocation()
+    }
+  }
+
+  @action async selectLocationFromSidebar (id) {
+    await this.selectLocation(id)
+    this.flyToSelectedLocation()
   }
 
   listenForMapReactions () {
