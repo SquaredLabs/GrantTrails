@@ -66,6 +66,21 @@ export default class Map extends React.Component {
         return
       }
 
+      // When we're already zoomed in and on a mobile device, centering on a
+      // selected location can seem kind of jarring. So don't do it.
+      const approximateSidebarSize = 26 * 16
+      const sidebarIsAboveInsteadOfOnLeft = window.innerWidth < approximateSidebarSize
+      if (sidebarIsAboveInsteadOfOnLeft && UiState.map.getZoom() > 8) return
+
+      // If the window width is smaller than the size of the sidebar, we do
+      // not want to shift since the user is clicking on locations below the map
+      const offset = !sidebarIsAboveInsteadOfOnLeft
+        // Offset describes how much to shift the center by. Since we have a
+        // sidebar on the left, we want our offset to be half of the sidebar's
+        // width. We also shift 30 pixels up since it looks a bit better.
+        ? [ document.querySelector('.sidebar').offsetWidth / 2, -30 ]
+        : [0, 50]
+
       UiState.map.flyTo({
         // Don't zoom the user out, cause that can be annoying.
         zoom: Math.max(UiState.map.getZoom(), 9),
@@ -73,10 +88,7 @@ export default class Map extends React.Component {
           UiState.selectedLocation.longitude,
           UiState.selectedLocation.latitude
         ],
-        // Offset describes how much to shift the center by. Since we have a
-        // sidebar on the left, we want our offset to be half of the sidebar's
-        // width. We also shift 30 pixels up since it looks a bit better.
-        offset: [ document.querySelector('.sidebar').offsetWidth / 2, -30 ]
+        offset
       })
     })
 
