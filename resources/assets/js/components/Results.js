@@ -21,6 +21,6 @@ export default class Results extends React.Component {
 
     return h(Accordion, { className: 'results' },
       h(ResultsFetchIndicator, { isFetching, lastFetchDidError, lastFetchHadNoResults }),
-      h(ResultsList, { matchedLocations, selectedLocation }))
+      !isFetching && h(ResultsList, { matchedLocations, selectedLocation }))
   }
 }

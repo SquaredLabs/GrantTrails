@@ -7,6 +7,14 @@
         overflow-y: auto;
         max-height: 100%;
     }
+
+    .sam-herbert-loader {
+        // Making the loader as tall as a single list item mitigates thrashing.
+        // We want a more concrete way of ensuring they're the same height in
+        // the future rather than eyeballing it with very specific magic numbers
+        // the the one below.
+        padding: 0.32em 1em;
+    }
 }
 
 .results-error {

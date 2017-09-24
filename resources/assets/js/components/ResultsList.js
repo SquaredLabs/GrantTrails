@@ -7,8 +7,12 @@ export default class Results extends React.Component {
   render () {
     const { matchedLocations, selectedLocation } = this.props
 
+    const locations = !matchedLocations.includes(selectedLocation) && selectedLocation
+      ? [ selectedLocation, ...matchedLocations ]
+      : matchedLocations
+
     return h('ul', null,
-      matchedLocations.map(location =>
+      locations.map(location =>
         h(LocationCell, {
           key: location.id,
           location,

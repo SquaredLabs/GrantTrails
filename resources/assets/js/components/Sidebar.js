@@ -10,7 +10,6 @@ import SearchBox from 'components/SearchBox'
 import Results from 'components/Results'
 import FilterPane from 'components/FilterPane'
 import ExpandButton from 'components/ExpandButton'
-import ResultFromMap from 'components/ResultFromMap'
 
 @inject('UiState') @observer
 class AboutExpandButton extends React.Component {
@@ -61,7 +60,6 @@ export default class Sidebar extends React.Component {
         children: h(FilterPane)
       }),
 
-      h(ResultFromMap),
       h(Results),
 
       h(AboutExpandButton),
