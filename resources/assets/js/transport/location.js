@@ -1,5 +1,5 @@
 import qs from 'qs'
-const { fetch } = window
+import fetch from 'isomorphic-fetch'
 
 export default (opts) => {
   opts = Object.keys(opts).reduce((acc, key) => (
