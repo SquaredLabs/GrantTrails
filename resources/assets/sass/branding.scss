@@ -9,7 +9,28 @@
     padding: .8em 1em .3em;
 
     @media (max-width: 640px) {
-        display: none;
+        left: 0; right: auto;
+        padding: .5em 1em;
+
+        // The mapbox-gl-js attribution will be shown instead as a collapsed
+        // icon to the right.
+        .attribution {
+            display: none;
+        }
+
+        .branding-logos {
+            flex-wrap: wrap;
+            width: 20vw;
+
+            a {
+                flex: 0 0 100%;
+            }
+
+            a + a {
+                margin-left: 0;
+                margin-top: 0.75em;
+            }
+        }
     }
 }
 
@@ -17,7 +38,6 @@
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 1em;
 
     a {
         flex: 1;
@@ -38,6 +58,7 @@
 }
 
 .attribution {
+    margin-top: 1em;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     a {
         color: black;
