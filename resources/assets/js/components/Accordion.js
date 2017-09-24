@@ -30,6 +30,13 @@ export default class extends React.Component {
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
         this.container.style.height = newHeight + 'px'
+
+        // This component is still a bit buggy on some browsers. Set height to
+        // auto after our animation to ensure items don't get incorrectly cut.
+        // Under normal circumstances, this should have no effect.
+        this.container.addEventListener('transitionend', () => {
+          this.container.style.height = null
+        })
       })
     })
   }
