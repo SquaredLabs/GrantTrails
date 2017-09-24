@@ -41,6 +41,12 @@
     cursor: default;
 }
 
+@media(max-width: 640px) {
+    .mapboxgl-ctrl {
+        display: none;
+    }
+}
+
 .map-error-message {
     text-align: center;
     font-size: 1.4em;
