@@ -26,7 +26,6 @@ class CreatePurchasesTable extends Migration
             $table->integer('agency_type_id')
                   ->unsigned()
                   ->nullable();
-            $table->string('transaction_date')->nullable();
             $table->timestamps();
 
             $table->foreign('location_id')

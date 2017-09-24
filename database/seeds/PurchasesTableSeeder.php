@@ -6,8 +6,7 @@ class PurchasesTableSeeder extends MultiCsvReader
 {
     protected $csvColumnsToModelProperty = [
         'AMT_POSTED' => 'amount',
-        'UNIV_FISCAL_YR' => 'fiscal_year',
-        'TRANSACTION_DT' => 'transaction_date',
+        'UNIV_FISCAL_YR' => 'fiscal_year'
     ];
 
     protected function preRunHook()
