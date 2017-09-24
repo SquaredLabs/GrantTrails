@@ -15,13 +15,22 @@ export default class Map extends React.Component {
   async componentDidMount () {
     const { UiState, PointStore } = this.props
 
-    UiState.map = new mapboxgl.Map({
+    const defaultMapboxSettings = {
       container: this.container,
       style: `${TILESERVER_URL}/styles/positron/style.json`,
       center: [-73.0877, 41.6032],
       zoom: 8,
       attributionControl: false
-    })
+    }
+
+    const smallResolutionSettings = {
+      center: [-72.700, 41.9032],
+      zoom: 7
+    }
+
+    UiState.map = new mapboxgl.Map(window.innerWidth > 640
+      ? defaultMapboxSettings
+      : { ...defaultMapboxSettings, ...smallResolutionSettings })
 
     UiState.map.addControl(new mapboxgl.NavigationControl())
     UiState.map.addControl(new mapboxgl.AttributionControl({ compact: true }))
