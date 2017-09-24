@@ -35,6 +35,9 @@ class PointsController extends Controller
             ->withPurchases()
             ->filtered($filters, $request)
             ->forGeoJSON()
+            // Only show CT for now. We'll do a national version in a future
+            // release.
+            ->where('state', 'CT')
             ->rememberForever()
             ->get();
 

@@ -18,8 +18,8 @@ export default class Map extends React.Component {
     UiState.map = new mapboxgl.Map({
       container: this.container,
       style: `${TILESERVER_URL}/styles/positron/style.json`,
-      center: [-98.7320839, 38.2448593],
-      zoom: 4,
+      center: [-73.0877, 41.6032],
+      zoom: 8,
       attributionControl: false
     })
 
@@ -117,12 +117,7 @@ export default class Map extends React.Component {
             [32000000, 25]
           ]
         },
-        'circle-color': {
-          'property': 'state',
-          'type': 'categorical',
-          'stops': [ ['CT', colors.localPoint] ],
-          'default': colors.defaultPoint
-        },
+        'circle-color': colors.defaultPoint,
         'circle-opacity': {
           'property': 'transactions',
           'stops': [

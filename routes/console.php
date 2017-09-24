@@ -31,7 +31,11 @@ Artisan::command('elasticsearch:reindex', function() {
         $response = $client->indices()->delete([ 'index' => $index ]);
     }
 
-    $locations = Location::havingCoordinates()->get();
+    $locations = Location::havingCoordinates()
+        // Only show CT for now. We'll do a national version in a future
+        // release.
+        ->where('state', 'CT')
+        ->get();
     foreach ($locations as $location) {
         $client->index([
             'index' => \Config::get('elasticsearch.index'),
