@@ -1,7 +1,6 @@
 $main-color: #5aaeec;
 
 .segmented-control {
-    display: flex;
     cursor: pointer;
     user-select: none;
 
@@ -14,7 +13,6 @@ $main-color: #5aaeec;
 
     .segmented-control-option {
         border: 1px solid $main-color;
-        flex: 1;
 
         &:nth-child(2) { border-left-color: lighten($main-color, 10%); }
         &:last-child { border-radius: 0 2px 2px 0; }
@@ -44,7 +42,6 @@ $main-color: #5aaeec;
     }
 
     .segmented-control-reset {
-        flex-grow: 0;
         background-color: rgba(0,0,0,.08);
         border-radius: 2px 0 0 2px;
         border-bottom: 0 solid transparent;
