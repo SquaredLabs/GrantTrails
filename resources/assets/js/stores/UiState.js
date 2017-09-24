@@ -7,7 +7,9 @@ import PointStore from 'stores/PointStore'
 class UiState {
   @observable.ref map = null
 
-  @observable userIsViewingAbout = true
+  // Only show the site description on load when
+  // the user has wide enough room for it.
+  @observable userIsViewingAbout = window.innerWidth > 640
   @observable userIsViewingFilters = false
 
   @observable mapDidLoad = false
