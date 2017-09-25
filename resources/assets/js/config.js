@@ -13,7 +13,7 @@ export const filters = [
   {
     name: 'Fiscal Year',
     type: 'multi',
-    options: [ '2013', '2014', '2015', '2016', '2017' ]
+    options: [ '2014', '2015', '2016', '2017' ]
   }
 ]
 
