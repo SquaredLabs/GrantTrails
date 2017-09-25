@@ -170,7 +170,8 @@ class Location extends Model
                 'Equipment > $5,000',
                 'Equipment < $5,000',
                 'Consultants',
-                'Contractuals'
+                'Contractuals',
+                'Vendor'
             ];
             $vendors = ExpenseCategory::whereIn('name', $names)
                 ->select('id')
@@ -179,11 +180,16 @@ class Location extends Model
             $query->whereIn('purchases.expense_category_id', $vendors);
         }
 
-        if ($filters->contains('Payees.Subagreements')) {
-            $subagreements = ExpenseCategory::where('name', 'Subagreements')
+        if ($filters->contains('Payees.Subawards')) {
+            $names = [
+                'Subagreements',
+                'Subaward'
+            ];
+            $subagreements = ExpenseCategory::whereIn('name', $names)
                 ->select('id')
-                ->firstOrFail();
-            $query->where('purchases.expense_category_id', $subagreements->id);
+                ->get()
+                ->map(function($expenseCategory) { return $expenseCategory->id; });
+            $query->whereIn('purchases.expense_category_id', $subagreements);
         }
 
         if ($filters->contains('Payees.Other')) {
@@ -191,7 +197,8 @@ class Location extends Model
                 'Travel - Domestic',
                 'Travel - Foreign',
                 'Student Fees/Expenses',
-                'Other Expense'
+                'Other Expense',
+                'Other'
             ];
             $other = ExpenseCategory::whereIn('name', $names)
                 ->select('id')
@@ -204,14 +211,24 @@ class Location extends Model
          * Grant Type
          */
         if ($filters->contains('Grant_Type.Federal')) {
-            $federal = AgencyType::where('name', 'Federal')
+            $names = [
+                'Federal',
+                'Federal Grants/Contracts'
+            ];
+            $federal = AgencyType::whereIn('name', $names)
                 ->select('id')
-                ->firstOrFail();
-            $query->where('purchases.agency_type_id', $federal->id);
+                ->get()
+                ->map(function($agencyType) { return $agencyType->id; });
+            $query->whereIn('purchases.agency_type_id', $federal);
         }
 
         if ($filters->contains('Grant_Type.State')) {
-            $state = AgencyType::whereIn('name', ['State/CT', 'State(Not CT)'])
+            $names = [
+                'State/CT',
+                'State(Not CT)',
+                'State of CT Grants/Contracts'
+            ];
+            $state = AgencyType::whereIn('name', $names)
                 ->select('id')
                 ->get()
                 ->map(function($agencyType) { return $agencyType->id; });
@@ -219,10 +236,15 @@ class Location extends Model
         }
 
         if ($filters->contains('Grant_Type.Corporate')) {
-            $corporate = AgencyType::where('name', 'Corporate')
+            $names = [
+                'Corporate',
+                'Corporate/Industry Grants/Contracts'
+            ];
+            $corporate = AgencyType::whereIn('name', $names)
                 ->select('id')
-                ->firstOrFail();
-            $query->where('purchases.agency_type_id', $corporate->id);
+                ->get()
+                ->map(function($agencyType) { return $agencyType->id; });
+            $query->whereIn('purchases.agency_type_id', $corporate);
         }
 
         if ($filters->contains('Grant_Type.Other')) {
@@ -230,7 +252,10 @@ class Location extends Model
                 'College/University',
                 'Non-Profit',
                 'Local Government',
-                'International'
+                'International',
+                'Higher Education Institutions',
+                'Not-for-Profit NFP Grants/Contracts',
+                'Gift Funds'
             ];
             $other = AgencyType::whereIn('name', $names)
                 ->select('id')

@@ -4,7 +4,7 @@ export const POINTS_ENDPOINT = '/api/points'
 export const filters = [
   {
     name: 'Payees',
-    options: [ 'Employees', 'Vendors', 'Subagreements', 'Other' ]
+    options: [ 'Employees', 'Vendors', 'Subawards', 'Other' ]
   },
   {
     name: 'Grant Type',
