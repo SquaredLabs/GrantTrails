@@ -16,7 +16,7 @@
     transition-duration: .25s;
 
     &.expand-width {
-        max-width: 26em;
+        max-width: 23em;
     }
 
     @supports (-webkit-backdrop-filter: blur(4px)) {
