@@ -20,4 +20,4 @@ const FetchError = () =>
 
 const NoResults = () =>
   h('div', { className: 'results-error' },
-    'Your search did not match any locations. You may enter a city name, zip code, or country code.')
+    'Your search did not match any locations. You may enter a Connecticut city name or zip code.')
