@@ -113,8 +113,8 @@ export default class Map extends React.Component {
           'property': 'transactions',
           'stops': [
             [1, 0.3],
-            [1000, 0.7],
-            [10000, 1]
+            [10000, 0.6],
+            [100000, 1]
           ]
         }
       }

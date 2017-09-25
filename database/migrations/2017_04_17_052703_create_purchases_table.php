@@ -26,6 +26,10 @@ class CreatePurchasesTable extends Migration
             $table->integer('agency_type_id')
                   ->unsigned()
                   ->nullable();
+            // Some transactions/purchases can be aggregates of smaller ones.
+            $table->integer('cardinality')
+                  ->unsigned()
+                  ->default(1);
             $table->timestamps();
 
             $table->foreign('location_id')

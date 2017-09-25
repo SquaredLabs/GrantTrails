@@ -71,7 +71,7 @@ class Location extends Model
             ->select([
                 'locations.*',
                 DB::raw('SUM(purchases.amount) as total'),
-                DB::raw('COUNT(purchases.id) as transactions')
+                DB::raw('COUNT(purchases.cardinality) as transactions')
             ]);
     }
 
@@ -97,7 +97,7 @@ class Location extends Model
                 'longitude',
                 'latitude',
                 DB::raw('SUM(purchases.amount) as total'),
-                DB::raw('COUNT(purchases.id) as transactions')
+                DB::raw('COUNT(purchases.cardinality) as transactions')
             ]);
     }
 

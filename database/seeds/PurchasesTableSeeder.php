@@ -48,6 +48,13 @@ class PurchasesTableSeeder extends MultiCsvReader
             $new->agency_type_id = $this->agencyTypesToId[$agency_type];
         }
 
+        if (array_key_exists('CARDINALITY', $this->csvColumnsToIndex)) {
+            $cardinality = $row[$this->csvColumnsToIndex['CARDINALITY']];
+            if ($cardinality != '') {
+                $new->cardinality = $cardinality;
+            }
+        }
+
         return $new;
     }
 }

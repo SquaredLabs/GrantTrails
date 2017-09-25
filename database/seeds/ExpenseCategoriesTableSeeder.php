@@ -18,7 +18,7 @@ class ExpenseCategoriesTableSeeder extends MultiCsvReader
     protected function shouldSkipRowHook($row)
     {
         $name = $row[$this->csvColumnsToIndex['EXP_CATEGORY_DESC']];
-        return array_key_exists($name, $this->populatedExpenseCategories);
+        return empty($name) || array_key_exists($name, $this->populatedExpenseCategories);
     }
 
     protected function createNewModelHook($row)
