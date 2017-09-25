@@ -7,6 +7,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
+        <meta property="og:title" content="Husky Trails" />
+        <meta property="og:description" content="Visualize University of Connecticut expenditures." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+        <meta property="og:image" content="/img/release-candidate.png" />
+
         <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.40.0/mapbox-gl.css" rel="stylesheet" />
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
 

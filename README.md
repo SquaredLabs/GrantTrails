@@ -2,7 +2,7 @@
 
 Husky Trails visualizes University of Connecticut expenditures.
 
-![Release Candidate](screenshots/release-candidate.png)
+![Release Candidate](public/img/release-candidate.png)
 
 This project is in early beta and source code is subject to change. Setup instructions will be posted here soon.
 
