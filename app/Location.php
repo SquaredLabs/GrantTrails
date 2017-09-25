@@ -153,61 +153,6 @@ class Location extends Model
     public function scopeFiltered($query, $filters, $request)
     {
         /*
-         * Payees
-         */
-        if ($filters->contains('Payees.Employees')) {
-            $names = ['Salary', 'Fringe Benefits'];
-            $employees = ExpenseCategory::whereIn('name', $names)
-                ->select('id')
-                ->get()
-                ->map(function($expenseCategory) { return $expenseCategory->id; });
-            $query->whereIn('purchases.expense_category_id', $employees);
-        }
-
-        if ($filters->contains('Payees.Vendors')) {
-            $names = [
-                'Specialized Service Facilities',
-                'Equipment > $5,000',
-                'Equipment < $5,000',
-                'Consultants',
-                'Contractuals',
-                'Vendor'
-            ];
-            $vendors = ExpenseCategory::whereIn('name', $names)
-                ->select('id')
-                ->get()
-                ->map(function($expenseCategory) { return $expenseCategory->id; });
-            $query->whereIn('purchases.expense_category_id', $vendors);
-        }
-
-        if ($filters->contains('Payees.Subawards')) {
-            $names = [
-                'Subagreements',
-                'Subaward'
-            ];
-            $subagreements = ExpenseCategory::whereIn('name', $names)
-                ->select('id')
-                ->get()
-                ->map(function($expenseCategory) { return $expenseCategory->id; });
-            $query->whereIn('purchases.expense_category_id', $subagreements);
-        }
-
-        if ($filters->contains('Payees.Other')) {
-            $names = [
-                'Travel - Domestic',
-                'Travel - Foreign',
-                'Student Fees/Expenses',
-                'Other Expense',
-                'Other'
-            ];
-            $other = ExpenseCategory::whereIn('name', $names)
-                ->select('id')
-                ->get()
-                ->map(function($expenseCategory) { return $expenseCategory->id; });
-            $query->whereIn('purchases.expense_category_id', $other);
-        }
-
-        /*
          * Grant Type
          */
         if ($filters->contains('Grant_Type.Federal')) {
