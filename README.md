@@ -1,6 +1,6 @@
-# Husky Trails
+# Grant Trails
 
-Husky Trails visualizes University of Connecticut expenditures.
+Grant Trails visualizes University of Connecticut expenditures.
 
 ![Release Candidate](public/img/release-candidate.png)
 
@@ -8,4 +8,4 @@ This project is in early beta and source code is subject to change. Setup instru
 
 ## License
 
-[License](https://github.com/SquaredLabs/HuskyTrails/blob/master/LICENSE.md)
+[License](https://github.com/SquaredLabs/GrantTrails/blob/master/LICENSE.md)

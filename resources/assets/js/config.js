@@ -22,7 +22,7 @@ export const colors = {
 // The @markdown comment allows for markdown syntax highlighting when using the
 // language-babel Atom package.
 export const about = /* @markdown */`
-# Husky Trails
+# Grant Trails
 
 While federal, state, and corporate research grants support researchers at an institution, they also play an important role in supporting local economies in a manner that often gets overlooked.
 
@@ -36,7 +36,7 @@ Feel free to explore the visualization by typing in a location (city or zip), ad
 
 ## Credit
 
-Husky Trails is an open source project available for universities to showcase their geographic grant distribution. Source code can be found on [GitHub](https://github.com/SquaredLabs/HuskyTrails).
+Grant Trails is an open source project available for universities to showcase their geographic grant distribution. Source code can be found on [GitHub](https://github.com/SquaredLabs/GrantTrails).
 
-The project built using an extensive library of open data and software. A brief list can be found in the [copyright and license file](https://github.com/SquaredLabs/HuskyTrails/blob/master/LICENSE.md).
+The project built using an extensive library of open data and software. A brief list can be found in the [copyright and license file](https://github.com/SquaredLabs/GrantTrails/blob/master/LICENSE.md).
 `

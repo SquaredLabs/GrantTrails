@@ -1,5 +1,5 @@
 {
-  "name": "HuskyTrails",
+  "name": "GrantTrails",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",

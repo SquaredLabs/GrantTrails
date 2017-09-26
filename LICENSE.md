@@ -2,9 +2,9 @@
 
 Copyright (c) 2017, Squared Labs - A unit of COR²E.
 
-Husky Trails is licensed under the Mozilla Public License 2.0. A copy can be found in this repository and on the [Mozilla website](https://www.mozilla.org/en-US/MPL/).
+Grant Trails is licensed under the Mozilla Public License 2.0. A copy can be found in this repository and on the [Mozilla website](https://www.mozilla.org/en-US/MPL/).
 
-Husky Trails was built using an extensive library of open data and software. The below projects and data providers do not officially endorse Husky Trails in any manner. This list is not exhaustive.
+Grant Trails was built using an extensive library of open data and software. The below projects and data providers do not officially endorse Grant Trails in any manner. This list is not exhaustive.
 
   - [Coordinates and city names](http://download.geonames.org/export/zip/) by [GeoNames](http://www.geonames.org/). Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and unmodified from the original.
 

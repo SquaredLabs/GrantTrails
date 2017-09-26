@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'index' => env('ELASTICSEARCH_INDEX', 'huskytrails'),
+    'index' => env('ELASTICSEARCH_INDEX', 'granttrails'),
 
     'host' => env('ELASTICSEARCH_HOST', 'localhost'),
 
