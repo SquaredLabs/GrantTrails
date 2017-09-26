@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/');
+    return redirect('/CT');
 });
 
 Route::get('/CT', function () {
