@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
+    return redirect('/');
+});
+
+Route::get('/CT', function () {
     return view('index');
 });
