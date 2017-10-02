@@ -1,69 +1,40 @@
-.branding {
+.squared-labs-stamp {
+    position: absolute;
+
+    bottom: 0; left: 0; right: 0;
+    background-color: rgba(255,255,255, .5);
+    padding: .8em .5em .3em;
+    width: 8em;
+    margin: auto;
+
+    img {
+        width: 100%;
+    }
+
+    @media (max-width: 670px) {
+        width: 5em;
+    }
+}
+
+.uconn-logo {
+    display: block;
+    max-width: 7em;
+
     position: absolute;
     bottom: 0; right: 0;
-    background-color: rgba(255,255,255, .5);
 
-    padding: .8em 1em .3em;
+    padding: 1em 1.5em;
 
-    @media (max-width: 640px) {
-        left: 0; right: auto;
-        padding: .5em 1em;
-
-        // The mapbox-gl-js attribution will be shown instead as a collapsed
-        // icon to the right.
-        .attribution {
-            display: none;
-        }
-
-        .branding-logos {
-            flex-wrap: wrap;
-            width: 20vw;
-
-            a {
-                flex: 0 0 100%;
-            }
-
-            a + a {
-                margin-left: 0;
-                margin-top: 0.75em;
-            }
-        }
-    }
-}
-
-.branding-logos {
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    a {
-        flex: 1;
-        max-width: 7.5em;
-
-        img {
-            display: block;
-
-            width: 100%;
-        }
+    img {
+        width: 100%;
     }
 
-    a + a {
-        margin-left: 1em;
-    }
-}
-
-.attribution {
-    margin-top: 1em;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    a {
-        color: black;
+    @media (max-width: 670px) {
+        width: 4em;
+        padding: .75em;
     }
 }
 
 .mapboxgl-ctrl-attrib {
-    display: none;
-
-    @media (max-width: 640px) {
-        display: block;
-    }
+    background: none !important;
 }

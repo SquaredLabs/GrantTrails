@@ -33,7 +33,7 @@ export default class Map extends React.Component {
       : { ...defaultMapboxSettings, ...smallResolutionSettings })
 
     UiState.map.addControl(new mapboxgl.NavigationControl())
-    UiState.map.addControl(new mapboxgl.AttributionControl({ compact: true }))
+    UiState.map.addControl(new mapboxgl.AttributionControl(), 'bottom-left');
 
     UiState.map.on('error', e => {
       console.error(e)
