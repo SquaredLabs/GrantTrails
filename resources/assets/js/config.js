@@ -38,5 +38,5 @@ Feel free to explore the visualization by typing in a location (city or zip), ad
 
 Grant Trails is an open source project available for universities to showcase their geographic grant distribution. Source code can be found on [GitHub](https://github.com/SquaredLabs/GrantTrails).
 
-The project built using an extensive library of open data and software. A brief list can be found in the [copyright and license file](https://github.com/SquaredLabs/GrantTrails/blob/master/LICENSE.md).
+The project is built using an extensive library of open data and software. A brief list can be found in the [copyright and license file](https://github.com/SquaredLabs/GrantTrails/blob/master/LICENSE.md).
 `
